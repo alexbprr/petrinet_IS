@@ -1,0 +1,1260 @@
+%% BioMed_Central_Tex_Template_v1.06
+%%                                      %
+%  bmc_article.tex            ver: 1.06 %
+%                                       %
+
+%%IMPORTANT: do not delete the first line of this template
+%%It must be present to enable the BMC Submission system to 
+%%recognise this template!!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                     %%
+%%  LaTeX template for BioMed Central  %%
+%%     journal article submissions     %%
+%%                                     %%
+%%         <14 August 2007>            %%
+%%                                     %%
+%%                                     %%
+%% Uses:                               %%
+%% cite.sty, url.sty, bmc_article.cls  %%
+%% ifthen.sty. multicol.sty		   %%
+%%				      	   %%
+%%                                     %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%	
+%% For instructions on how to fill out this Tex template           %%
+%% document please refer to Readme.pdf and the instructions for    %%
+%% authors page on the biomed central website                      %%
+%% http://www.biomedcentral.com/info/authors/                      %%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%% BioMed Central currently use the MikTex distribution of         %%
+%% TeX for Windows) of TeX and LaTeX.  This is available from      %%
+%% http://www.miktex.org                                           %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+\documentclass[10pt]{bmc_article}    
+
+
+
+% Load packages
+\usepackage{cite} % Make references as [1-4], not [1,2,3,4]
+\usepackage{url}  % Formatting web addresses  
+\usepackage{ifthen}  % Conditional 
+\usepackage{multicol}   %Columns
+\usepackage[utf8]{inputenc} %unicode support
+\usepackage{listings}
+\usepackage{graphicx}
+%\usepackage[applemac]{inputenc} %applemac support if unicode package fails
+%\usepackage[latin1]{inputenc} %UNIX support if unicode package fails
+\usepackage{amssymb,amsmath}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{framed}
+\urlstyle{rm}
+ 
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%                                             %%
+%%  If you wish to display your graphics for   %%
+%%  your own use using includegraphic or       %%
+%%  includegraphics, then comment out the      %%
+%%  following two lines of code.               %%   
+%%  NB: These line *must* be included when     %%
+%%  submitting to BMC.                         %% 
+%%  All figure files must be submitted as      %%
+%%  separate graphics through the BMC          %%
+%%  submission process, not included in the    %% 
+%%  submitted article.                         %% 
+%%                                             %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                     
+
+
+%\def\includegraphic{}
+%\def\includegraphics{}
+
+
+
+\setlength{\topmargin}{0.0cm}
+\setlength{\textheight}{21.5cm}
+\setlength{\oddsidemargin}{0cm} 
+\setlength{\textwidth}{16.5cm}
+\setlength{\columnsep}{0.6cm}
+
+\newboolean{publ}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                              %%
+%% You may change the following style settings  %%
+%% Should you wish to format your article       %%
+%% in a publication style for printing out and  %%
+%% sharing with colleagues, but ensure that     %%
+%% before submitting to BMC that the style is   %%
+%% returned to the Review style setting.        %%
+%%                                              %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+
+%Review style settings
+%\newenvironment{bmcformat}{\begin{raggedright}\baselineskip20pt\sloppy\setboolean{publ}{false}}{\end{raggedright}\baselineskip20pt\sloppy}
+
+%Publication style settings
+%\newenvironment{bmcformat}{\fussy\setboolean{publ}{true}}{\fussy}
+
+%New style setting
+\newenvironment{bmcformat}{\baselineskip20pt\sloppy\setboolean{publ}{false}}{\baselineskip20pt\sloppy}
+
+% Begin ...
+\begin{document}
+\begin{bmcformat}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Enter the title of your article here     %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{On the computational modeling of the innate immune system}
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Enter the authors here                   %%
+%%                                          %%
+%% Ensure \and is entered between all but   %%
+%% the last two authors. This will be       %%
+%% replaced by a comma in the final article %%
+%%                                          %%
+%% Ensure there are no trailing spaces at   %% 
+%% the ends of the lines                    %%     	
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\author{Alexandre Bittencourt Pigozzo\correspondingauthor$^1$%
+         \email{A B Pigozzo\correspondingauthor - alexbprr@gmail.com}
+,
+         Gilson Costa Macedo$^2$%
+         \email{G C Macedo - gilson.macedo@ufjf.edu.br}%
+ ,
+         Rodrigo Weber dos Santos$^1$%
+         \email{R W dos Santos - rodrigo.weber@ufjf.edu.br}
+  ,
+         Marcelo Lobosco$^1$%
+         \email{M Lobosco - marcelo.lobosco@ufjf.edu.br}
+      }
+      
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Enter the authors' addresses here        %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\address{%
+%    \iid(1)Department of Zoology, Cambridge, Waterloo Road, London, UK\\
+%    \iid(2)Marine Ecology Department, Institute of Marine Sciences Kiel, %
+%        D\"{u}sternbrooker Weg 20, 24105 Kiel, Germany
+%}%
+
+
+\address{%
+    \iid(1)Graduate Program in Computational Modeling, UFJF, Rua Jos\'{e} Louren\c{c}o Kelmer, s/n - Campus Universit\'{a}rio,
+        Bairro S\~{a}o Pedro, CEP: 36036-900, Juiz de Fora, MG, Brazil\\
+    \iid(2)Graduate Program in Biological Sciences, UFJF, Rua Jos\'{e} Louren\c{c}o Kelmer, s/n - Campus Universit\'{a}rio,
+        Bairro S\~{a}o Pedro, CEP: 36036-900, Juiz de Fora, MG, Brazil
+}%
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% The Abstract begins here                 %%
+%%                                          %%  
+%% Please refer to the Instructions for     %%
+%% authors on http://www.biomedcentral.com  %%
+%% and include the section headings         %%
+%% accordingly for your article type.       %%   
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{abstract}
+        % Do not use inserted blank lines (ie \\) until main body of text.
+In recent years, there has been an increasing interest in the mathematical and computational modeling of the human immune system (HIS). 
+Computational models of HIS dynamics may contribute to a better understanding of the relationship between complex phenomena and immune 
+response; in addition, computational models will support the development of new drugs and therapies for different diseases. However, 
+modeling the HIS is an extremely difficult task that demands a huge amount of work to be performed by multidisciplinary teams. In this 
+study, our objective is to model the spatio-temporal dynamics of representative cells and molecules of the HIS during an immune response 
+after the injection of lipopolysaccharide (LPS) into a section of tissue. LPS constitutes the cellular wall of Gram-negative bacteria, 
+and it is a highly immunogenic molecule, which means that it has a remarkable capacity to elicit strong immune responses. We 
+present a descriptive, mechanistic and deterministic model that is based on partial differential equations (PDE). Therefore, this model 
+enables the understanding of how the different complex phenomena interact with structures and elements during an immune response. In 
+addition, the model's parameters reflect physiological features of the system, which makes the model appropriate for general use.
+\end{abstract}
+
+
+
+\ifthenelse{\boolean{publ}}{\begin{multicols}{2}}{}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% The Main Body begins here                %%
+%%                                          %%
+%% Please refer to the instructions for     %%
+%% authors on:                              %%
+%% http://www.biomedcentral.com/info/authors%%
+%% and include the section headings         %%
+%% accordingly for your article type.       %% 
+%%                                          %%
+%% See the Results and Discussion section   %%
+%% for details on how to create sub-sections%%
+%%                                          %%
+%% use \cite{...} to cite references        %%
+%%  \cite{koon} and                         %%
+%%  \cite{oreg,khar,zvai,xjon,schn,pond}    %%
+%%  \nocite{smith,marg,hunn,advi,koha,mouse}%%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%
+%% Background %%
+%%
+\section*{Introduction}
+
+The human immune system (HIS) consists of a wide and complex network of cells, tissues and organs. The HIS plays a crucial role in 
+defending the body against disease. To achieve this goal, the HIS identifies and kills a wide range of external pathogens such as 
+viruses and bacteria as well as the body's own abnormally behaving cells. The HIS is also responsible for removing dead cells and 
+regenerating some of the body's structures \cite{Sompayrac2008}. 
+
+A complete understanding of the HIS is therefore essential. However, its complexity and the intense interactions among several 
+components on various different levels make this task extremely complex \cite{icaris11,pedro2012}. However, we may better understand some properties of the 
+HIS by applying a computational model, which allows researchers to test a large number of hypotheses in a short period of time \cite{icaris11,pedro2012}. 
+In the future, we can envision a computer program that will simulate the entire HIS, allowing scientists to develop and test new 
+drugs against various diseases virtually, thus reducing the number of animals used in experiments. 
+
+In this study, our work aims to implement and simulate a mathematical model of the HIS. Due to the complexity of this task, our 
+focus is to reproduce the spatio-temporal dynamics of an immune response to the injection of lipopolysaccharides (LPS) into a small 
+section of tissue. To reproduce these dynamics, we introduce a mathematical model composed of a system of partial differential 
+equations (PDEs) that extends our previous model\cite{icaris11} and defines the dynamics of representative cells and molecules of the 
+HIS during the immune response to LPS. The model presented is descriptive, mechanistic and deterministic; therefore, it enables 
+the understanding of how different complex phenomena, structures and elements interact during an immune response. In addition, the 
+model's parameters reflect the physiological features of the system, making the model appropriate for general use.
+
+The remainder of the paper is organized as follows. First, the necessary biological background is presented. Next, related works are 
+briefly discussed. This exposition is followed by a description of both the mathematical model proposed in this work and its 
+computational implementation. Then simulation results obtained from the proposed model are discussed, and finally, our conclusions 
+and plans for future work are presented.
+
+\section*{Biological background}\label{background}
+%modificacoes: troquei proporcionate por provides
+
+``Human body surfaces are protected by epithelia, which provide a physical barrier between internal and external environments. 
+Epithelia make up the skin and lining of the tubular structures of the body (i.e., the gastrointestinal, respiratory and genitourinary 
+tracts), and they form an effective barrier against the external environment. At the same time, epithelia can be crossed or settled by 
+pathogens, causing infections. After crossing the epithelium, the pathogens encounter cells and molecules of the innate immune system, 
+which immediately develop a response'' \cite{janeway}.
+
+The body's initial response to an acute biological stress, such as a bacterial infection, is an acute inflammatory 
+response \cite{janeway}. The strategy of the HIS is to keep some resident macrophages on guard in tissues to look for any signal of 
+infection. When they find such a signal, the macrophages alert neutrophils (also known as polymorphonuclear neutrophils (PMNs)) 
+that their help is required. Because of this communication, the cooperation between macrophages and neutrophils is essential to 
+mount an effective defense against disease. Without macrophages to herd neutrophils toward the location of infection, the latter 
+would circulate indefinitely in the blood vessels, impairing the control of systemic infections \cite{Sompayrac2008}.
+
+The inflammation of an infectious tissue has many benefits for the control of the infection. In addition to recruiting cells and 
+molecules of innate immunity from blood vessels to the location of the infected tissue, inflammation increases the lymph flux, 
+which contains microorganisms and cells that carry antigens to neighboring lymphoid tissues; there, these cells will present the 
+antigens to the lymphocytes and initiate the adaptive response. Once the adaptive response has been activated, the inflammation 
+also shuttles the effector cells of the adaptive immune system to the location of infection \cite{janeway}.
+
+A component of the cellular wall of Gram-negative bacteria, such as LPS, can trigger an inflammatory response through the interaction 
+with receptors on the surface of some cells \cite{Sompayrac2008}. For example, the macrophages that reside in tissue recognize a bacterium through the 
+binding of TLR4 (Toll-like receptor 4) with LPS. When receptors on the surface of macrophages bind to LPS, the macrophage starts 
+to phagocytose, internally weakening the bacterium and secreting proteins known as cytokines and chemokines, as well as other molecules. 
+
+In many inflammatory conditions, neutrophils dominate the initial influx of leukocytes into the inflamed tissue. The first wave of 
+extravasated neutrophils is soon replaced by a second wave of monocytes \cite{Sompayrac2008}. A study presented initial proofs of the existence of this 
+sequence of events \cite{Rebuck1955}. In that study, neutrophils dominated the leukocyte extravasation three hours after the beginning 
+of the inflammation, and some time later, the extravasated cells were predominantly monocytes \cite{Rebuck1955}. 
+
+The resolution of the inflammatory response is a complex process that includes the production of anti-inflammatory mediators and the 
+apoptosis (or programmed death) of effector cells of the HIS, such as neutrophils \cite{Opal2000}. Anti-inflammatory cytokines form a set of 
+immunoregulatory molecules that control the inflammatory response. These cytokines work together with specific inhibitors and cytokines' 
+soluble receptors to regulate the immune response \cite{Opal2000}. A previous work \cite{Opal2000} demonstrated the participation of cytokines in 
+inflammatory states. Primary anti-inflammatory cytokines include the antagonist receptor of IL-1 (Interleukin 1) in addition to IL-4, 
+IL-6, IL-10, IL-11 and IL-13\cite{Opal2000}. Specifically, IL-10 is a strong inhibitor of many pro-inflammatory cytokines \cite{Fiorentino1991}, 
+including IL-8 and TNF-$\alpha$ (tumor necrosis factor $\alpha$), which are produced both by monocytes \cite{Waal1991} and by 
+neutrophils \cite{Cassatella1993,Marie1996}.
+
+Apoptotic cells maintain membrane integrity for a small period of time and therefore need to be quickly removed to prevent a secondary 
+necrosis and the consequent release of cytotoxic molecules, which cause inflammation and tissue damage \cite{Kennedy2009}. As a 
+consequence of the phagocytosis of apoptotic cells by macrophages or dendritic cells, these phagocytic cells produce anti-inflammatory 
+cytokines. For example, macrophages secrete TGF-$\beta$ (transforming growth factor $\beta$), which prevents the release of 
+pro-inflammatory cytokines induced by LPS \cite{Lucas2006}. Additionally, the binding of apoptotic cells to macrophage receptor 
+CD36 (cluster of differentiation 36) inhibits the production of pro-inflammatory cytokines such as TNF-$\alpha$, IL-1$\beta$ and IL-12; 
+this binding also increases the secretion of TGF-$\beta$ and IL-10\cite{Voll1997}. 
+
+\section*{Related work}\label{RelatedWorks}
+
+This section presents and discusses other models found in the literature to model the innate HIS. Essentially, two distinct approaches 
+are used: ordinary differential equations (ODEs) and partial differential equations (PDEs). 
+
+\subsection*{Models based on ODEs}
+
+The authors of \cite{Kumar2004} presented a model of inflammation that is based on ODEs and considers three types of cells/molecules: 
+the pathogen and two inflammatory mediators. This model was able to reproduce some experimental results depending on the values used 
+for initial conditions and parameters. The authors described the results of the sensitivity analysis, which suggests some therapeutic 
+strategies. Their work was then extended\cite{reynolds1} to investigate the influence of time on an anti-inflammatory response. The 
+mathematical model presented in \cite{reynolds1} consists of a system of ODEs with four equations that model: a) the pathogen; b) the 
+active phagocytes; c) tissue damage; and d) anti-inflammatory mediators. The source term of the phagocytes, in other words, a term 
+that models the entry of new phagocytes into the infected tissue, is a function that depends on a) the concentration of phagocytes; 
+b) the concentration of pathogens; and c) tissue damage. This term models the different interactions that phagocytes can undergo 
+during an immune response, whether the interactions are direct or mediated by cytokines. In the interaction mediated by cytokines, 
+they consider only the implicit presence of cytokines. For example, in an immune response, the interaction of phagocytes with tissue 
+is mediated by pro-inflammatory cytokines produced by infected epithelial tissue cells, and this relationship is modeled directly in 
+the source term of the phagocytes. This representation contrasts with the model proposed in the current work, where cytokines and 
+all their interactions are explicitly represented. 
+
+A new adaptation of the first model \cite{Kumar2004} was proposed to simulate many scenarios involving repeated doses of 
+endotoxin \cite{reynolds2}. This work applied results obtained through experiments using mice to guide \textit{in silico} experiments 
+seeking to reproduce these results qualitatively. The mathematical model represents the key aspects of an acute inflammatory response, 
+specifically when repeated doses of endotoxin are administered. This model replaces the pathogen equation proposed in the authors' 
+previous work \cite{reynolds1} with an equation incorporating the endotoxin. In their simulations, they observed that the timing and 
+magnitude of endotoxin doses, as well as the dynamics between pro- and anti-inflammatory mediators, are key to distinguishing between 
+potentiation and tolerance phenomena \cite{reynolds2}. The authors also argued that their model, although simplified, nevertheless 
+incorporates sufficiently complex dynamics to qualitatively reproduce a set of experimental results associated with different endotoxin 
+administrations in mice. 
+
+One final work \cite{Vodovotz2006} developed a more complete system of ODEs that models acute inflammation. This model includes 
+macrophages, neutrophils, dendritic cells, TH1 cells, blood pressure, tissue trauma, effector elements such as iNOS, 
+$\mathrm{NO_2^-}$ and $\mathrm{NO_3^-}$, pro-inflammatory and anti-inflammatory cytokines, and coagulation factors. In this model, 
+as well as our own (described in detail in the next section), 
+neutrophils and macrophages are directly activated by LPS. Moreover, activation also occurs indirectly by way of various stimuli 
+consistently elicited after a trauma or hemorrhage. However, the model proposed by \cite{Vodovotz2006} does not explicitly include 
+initial events of inflammation such as mast cell degranulation and complement activation, although these 
+factors were incorporated implicitly into cytokine and endotoxin dynamics. The model also includes anti-inflammatory cytokines such 
+as IL-10 and TGF $\beta$, in addition to soluble receptors for pro-inflammatory cytokines. The authors argued that their model proved 
+useful in simulating the inflammatory response induced in mice by endotoxin, trauma and surgery or surgical bleeding, as it can predict 
+levels of TNF, IL-10, IL-6 and reactive products of NO (NO$_{2}^{-}$ and NO$_{3}^{-}$) to some extent. 
+
+\subsection*{Models based on PDEs}
+
+The model proposed by Su \textit{et al} \cite{localmodel} uses a system of PDEs to represent the spatial dynamics of the innate and 
+adaptive immune systems. It considers the simplest form of antigens, the molecular constituents of pathogen patterns, taking into 
+account all the basic factors of an immune response: antigens, cells of the immune system, cytokines and chemokines. This model 
+captures the following stages of immune response: recognition, initiation, effector response and resolution of infection or change 
+to a new steady state. Accordingly, it can reproduce important phenomena such as a) the temporal order of cell arrival at the site 
+of infection; b) antigen presentation by dendritic cells, macrophages and the involvement of regulatory T cells (Treg) in the
+resolution of the immune response; c) the production of pro-inflammatory and anti-inflammatory cytokines; and d) chemotaxis. This 
+model has formed the basis for the development of our work.
+
+\section*{Mathematical model}\label{mathmodel}
+
+The complete modeling of the HIS demands that a huge amount of work be performed by a large multidisciplinary team. In this work, 
+we focus on a specific task: the development of a mathematical model of the innate immune response to the injection of LPS in a 
+section of tissue, as well as such a model's computational implementation. One motivation for developing a model of the innate 
+immune system is the fact that few such models are available in the literature; the majority of available models solely focus on 
+the adaptive immune system. Another reason in favor of modeling the innate immune system is that many diseases result from the 
+malfunction of the innate immune system; for these diseases, our proposed model could contribute to the definition of therapeutic 
+strategies. In addition, a better comprehension of the inner workings of the separate parts composing the innate immune system is 
+fundamental to a better understanding of immune response as a whole, as the innate immune system is responsible for both initiating 
+the immune response and triggering the adaptive immune system. 
+
+Our objective is to develop a parameterized mathematical model of the human innate immune system that simulates the immune response 
+occurring in a generic tissue. To achieve this goal, we first build a model of the immune response to LPS. We have chosen to use
+LPS because it is the major component of the outer membrane of Gram-negative bacteria, acting as an endotoxin substance that elicits 
+strong immune responses; thus, it represents a vast number of inflammatory diseases. However, our proposed model is generic in the 
+sense that it can be easily adapted to specific pathogens and distinct types of tissue through the adjustment of its parameters.
+
+The mathematical model simulates the temporal and spatial behavior of lipopolysaccharide ($LPS$), macrophages, neutrophils ($N$), 
+apoptotic neutrophils ($ND$), pro-inflammatory cytokines ($CH$), anti-inflammatory cytokine ($AC$) and protein granules ($G$). 
+Macrophages are present in two states of readiness: resting ($RM$) and \textit{hyperactivated} ($AM$). The different subsets of 
+protein granules \cite{Niels1997} released by neutrophils during their extravasation from blood vessels to the tissues are represented 
+by a unique variable. Additionally, we must stress that the equations modeling pro- and anti-inflammatory cytokines are generic in 
+the sense that they model the role of distinct cytokines taking part in the inflammatory process. Equation parameters can be adjusted 
+to model the role of a specific pro- or anti-inflammatory cytokine. 
+
+Our model extends the model proposed by Su \textit{et al} \cite{localmodel} by considering a macroscopic or homogenized view of a 
+tissue. In \cite{localmodel}, the exchange between the vascular system (arterioles and vessels) and tissue was assumed to occur 
+only at the boundaries of the domain, via Dirichlet boundary conditions. Our model allows each point of the tissue to be irrigated 
+by arterioles and vessels, so that cells in the blood stream can enter into the tissue at any point. This is equivalent to a 
+two-domain model, in which one domain represents the concentration of immune cells in the vascular system (in our case, neutrophils, 
+$Nmax(x,t)$, and macrophages, $Mmax(x,t)$) and the other domain represents the different cells and molecules present in the tissue 
+(our model considers lipopolysaccharide ($LPS$), neutrophils ($N$), apoptotic neutrophils ($ND$), pro-inflammatory cytokines ($CH$), 
+anti-inflammatory cytokines ($AC$), protein granules ($G$), resting ($RM$) and \textit{hyperactivated} ($AM$) macrophages).
+Communication between the two different domains is possible and is modeled by permeabilities that vary in space and time and may 
+depend on the concentration of different cells and molecules (in our model, the endothelium permeability of neutrophils depends on 
+the concentration of $CH$, whereas the permeability to macrophages depends on the concentration of both $CH$ and $G$). Figure 
+\ref{modelPicture} presents our two-domain macroscopic model.
+
+%inicio xandao
+%\begin{figure}[thpb]
+%	 \centering
+%	 \includegraphics[scale=0.6]{img/AlexandrePigozzo_fig1.jpg}
+%            \caption{Schematic representation of the two-domain model. The extravasation of neutrophils (or macrophages) from blood 
+%to tissue depends on local permeability, $P(x,t)$, and on the difference between local concentrations of neutrophils in the two domains, 
+%$N_{max}(x,t) - N(x,t)$. The permeability of the endothelium, which separates the two domains, varies with regard to time and space and depends 
+%on the local presence of pro-inflammatory cytokines and protein granules.}
+%	  \label{modelPicture}
+%\end{figure}
+%fim xandao
+
+The main characteristics of the proposed model are: 
+\begin{itemize}
+\item Macrophages and neutrophils cooperate to mount a more effective and intense response against the LPS; 
+\item The endothelium's permeability may vary with time and space and also depends on the local concentration of pro-inflammatory 
+cytokine and protein granules, as depicted by Figure \ref{modelPicture}; 
+\item Active macrophages regulate immune responses through the production of anti-inflammatory cytokines and the phagocytosis of 
+apoptotic neutrophils; 
+\item Anti-inflammatory cytokines perform a key role in the control of the inflammatory response, avoiding a state of persistent 
+inflammation after the complete elimination of LPS. 
+\end{itemize}
+
+Figure \ref{relacoesExtendido} depicts the relationships among all of the model's components. Neutrophils, resting macrophages and 
+active macrophages phagocytose the LPS. The neutrophils then undergo apoptosis, which may or may not be induced by the phagocytosis 
+process. In this different state, apoptotic neutrophils cannot perform phagocytosis or produce pro-inflammatory cytokines; as a result, 
+apoptotic neutrophils are eliminated from the body after being phagocytosed by active macrophages. The number of apoptotic neutrophils 
+in the serum is an indirect indication of the probability that the immune response will cause tissue damage, because apoptotic 
+neutrophils will die after a period of time, releasing cytotoxic granules and degradation enzymes in the medium that can cause tissue 
+damage. Neutrophils produce pro-inflammatory cytokines, such as TNF-$\alpha$ and IL-8, as well as protein granules, which allow the 
+direct activation and adhesion of monocytes in the endothelium of blood vessels, facilitating monocytes' extravasation into the tissue. 
+The resting macrophages become active when they recognize the LPS. The pro-inflammatory cytokines produced by neutrophils and active 
+macrophages increase the permeability of the blood vessels; consequently, more neutrophils and monocytes are recruited to the tissue. 
+In addition, the pro-inflammatory cytokines act as a chemoattractant substance to the resting macrophages, active macrophages and 
+neutrophils. The production of the pro-inflammatory cytokine is blocked when an active macrophage or neutrophil comes in contact with 
+an anti-inflammatory cytokine. Macrophage activation is also blocked by the action of an anti-inflammatory cytokine, which is produced 
+by active macrophages and by resting macrophages that are in contact with apoptotic neutrophils. 
+
+%\begin{figure}[thpb]
+%	 \centering
+%	 \includegraphics[scale=0.45]{img/AlexandrePigozzo_fig2.png}
+%           \caption{Relations among the components of the model.}
+%	  \label{relacoesExtendido}
+%\end{figure}
+
+
+Below, we provide the equations derived from the model. Equation \ref{eqLPS} provides the LPS differential equation.
+
+\begin{equation}
+ \begin{cases} 
+  RM_{activation} = \frac{\phi_{RM|LPS}.RM.LPS}{(1 + \theta_{AC}.AC)}\\ \\
+  \frac{\partial LPS}{\partial t} = -\mu_{LPS} LPS - RM_{activation} -(\lambda_{N|LPS}N + \lambda_{AM|LPS}AM).LPS + D_{LPS}\Delta LPS  \\\\
+  LPS(x,0) = LPS_0,\frac{\partial LPS(.,t)}{\partial n} |_{\partial\Omega} = 0 
+\end{cases} 
+\label{eqLPS}
+\end{equation}
+
+In this equation, $\mu_{LPS} LPS$ denotes the decay of LPS, where $\mu_{LPS}$ is the rate of decay, $RM_{activation}$ denotes 
+the activation of resting macrophages, where $\phi_{RM|LPS}$ is the rate of activation. This activation occurs when resting macrophages 
+recognize the LPS, after which macrophages phagocytose the LPS. $\lambda_{N|LPS}.N$ denotes the phagocytosis of LPS by neutrophils, 
+where $\lambda_{N|LPS}$ is the rate of this phagocytosis. $\lambda_{AM|LPS}.AM$ denotes the phagocytosis of LPS by active macrophages, 
+where  $\lambda_{AM|LPS}$ is the rate of this phagocytosis. $D_{LPS}\Delta LPS$ denotes LPS diffusion, whereas $D_{LPS}$ represents the 
+diffusion coefficient. Figure \ref{diffusion} presents a schematic representation of the diffusion process implemented by the diffusion 
+operator, $D_{LPS}\Delta LPS$, and illustrates the diffusion of cells through the tissue. Diffusion is defined as the spread of particles 
+from regions of higher concentration to regions of lower concentration. 
+
+%\begin{figure}[thpb]
+%	 \centering
+%	 \includegraphics[scale=0.55]{img/AlexandrePigozzo_fig3.jpg}
+%            \caption{Schematic representation of the diffusion process.}
+%	  \label{diffusion}
+%\end{figure}
+
+The differential equation corresponding to the resting macrophage (RM) is given in Equation \ref{eqMREstendido}.
+
+\begin{equation}
+\label{eqMREstendido}
+ \begin{cases} 
+RM_{P} = (P^{max}_{RM} - P^{min}_{RM}).\frac{CH}{(CH + keqch)} + P^{min}_{RM}\\\\
+RM_{Q} = (Q^{max}_{RM} - Q^{min}_{RM}).\frac{G}{(G + keq\_g)} + Q^{min}_{RM}\\\\
+source_{RM} = (RM_{P} + RM_{Q}).(M^{max} - (RM + AM))\\  \\
+\frac{\partial RM}{\partial t} = -\mu_{RM} RM - RM_{activation} + D_{RM} \Delta RM + source_{RM} - \nabla. (\chi_{RM} RM \nabla CH)  \\\\
+RM(x,0) = RM_0, \frac{\partial RM(.,t)}{\partial n} |_{\partial\Omega} = 0
+ \end{cases}
+\end{equation}
+
+$RM_{P}$ and $RM_{Q}$ denote the increase in endothelium permeability and its effects on monocyte extravasation. The permeability of 
+blood vessel endothelium is modeled by a Hill equation \cite{Goutelle2008}, which also has been used to model drug dose-response 
+relationships \cite{Wagner1968}. The idea is to model the increase in the permeability of the endothelium in accordance with the 
+number of pro-inflammatory cytokines deposited on the endothelium. Figure \ref{permeability} illustrates the effect of increasing  
+blood vessel permeability. We can see that the space between two neighboring endothelial cells increases, 
+allowing more cells to extravasate to the tissue. The dynamic permeability depends on the cytokine concentration. 
+
+%\begin{figure}[thpb]
+%	 \centering
+%	 \includegraphics[scale=0.6]{img/AlexandrePigozzo_fig4.jpg}
+%           \caption{Representation of the differences between fixed and dynamic permeabilities.}
+%	  \label{permeability}
+%\end{figure}
+
+The calculation of $RM_{P}$ involves the following parameters: a) $P^{max}_{RM}$, the maximum endothelium permeability induced by the 
+pro-inflammatory cytokine; b) $P^{min}_{RM}$, the minimum endothelium permeability induced by the pro-inflammatory cytokine; and 
+c) $keqch$, the number of pro-inflammatory cytokines that exert $50\%$ of the maximum effect on permeability. 
+
+$RM_{Q}$ denotes the increase in endothelium permeability induced by protein granules, and its calculation is similar to that of $RM_{P}$, 
+except for the parameters involved: $Q^{max}_{RM}$, $Q^{min}_{RM}$ and $keq\_g$. $source_{RM}$ denotes the source term of macrophages, 
+which is related to the number of monocytes that will enter into the tissue from the blood vessels. 
+This number depends on the endothelium permeability $RM_{P} + RM_{Q}$ and on the number of monocytes appearing in the blood ($M^{max}$).
+ 
+$\mu_{RM} RM$ denotes resting macrophage apoptosis, where $\mu_{RM}$ is the apoptosis rate. $RM_{activation}$, as explained above, models 
+the activation of resting macrophages and denotes the number of resting macrophages that are becoming active. The term $D_{RM} \Delta RM$ 
+denotes the resting macrophage diffusion, where $D_{RM}$ is the diffusion coefficient. $\nabla. (\chi_{RM} RM \nabla CH)$ denotes the 
+resting macrophage chemotaxis, where $\chi_{RM}$ is the chemotaxis rate.
+
+Figure \ref{chemotaxis} provides a schematic representation of the chemotaxis process implemented by the chemotaxis operator,  
+$\nabla. (\chi_{RM} RM \nabla CH)$. Chemotaxis is the phenomenon by which cells direct their own movements according to certain chemicals 
+present in their environment.
+
+%\begin{figure}[thpb]
+%	 \centering
+%	 \includegraphics[scale=0.55]{img/AlexandrePigozzo_fig5.jpg}
+%            \caption{Schematic representation of chemotaxis.}
+%	  \label{chemotaxis}
+%\end{figure}
+
+The differential equation corresponding to the active macrophage (AM) is given in Equation \ref{eqMAEstendido}.
+
+\begin{equation}
+\label{eqMAEstendido}
+ \begin{cases} 
+\frac{\partial AM}{\partial t} = -\mu_{AM} AM + RM_{activation} + D_{AM} \Delta AM - \nabla. (\chi_{AM} AM \nabla CH)\\\\
+AM(x,0) = AM_0, \frac{\partial AM(.,t)}{\partial n} |_{\partial\Omega} = 0 
+\end{cases}
+\end{equation}
+
+
+Above, $\mu_{AM} AM$, $D_{AM} \Delta AM$, and $\nabla. (\chi_{AM} AM \nabla CH)$ denote the active macrophage apoptosis, diffusion, 
+and chemotaxis, respectively, whereas $\mu_{AM}$, $D_{AM}$, and $\chi_{AM}$ are the apoptosis rate, diffusion coefficient, and chemotaxis 
+rate, respectively.
+
+The differential equation for the pro-inflammatory cytokine (CH) is given in Equation \ref{eqCHEstendido}.
+
+\begin{equation}
+\label{eqCHEstendido}
+\begin{cases} 
+\frac{\partial CH}{\partial t} = -\mu_{CH} CH + ((\beta _{CH|N}.N.LPS + \beta _{CH|AM}.AM.LPS).(1 - \frac{CH}{chInf}))/(1 + \theta_{AC}.AC)+ \\
+ + D_{CH} \Delta CH \\ \\
+CH(x,0) =  CH_0, \frac{\partial CH(.,t)}{\partial n} |_{\partial\Omega} = 0 
+\end{cases}
+\end{equation}
+
+In this equation, $\mu_{CH} CH$ denotes the pro-inflammatory cytokine decay, where $\mu_{CH}$ is the decay rate. 
+$\beta _{CH|N}.N$ denotes the pro-inflammatory cytokine production by the neutrophils, where $\beta _{CH|N}$ is the production rate. 
+$\beta _{CH|AM}.AM$ denotes the pro-inflammatory cytokine production by active macrophages, where $\beta _{CH|AM}$ is the production rate. 
+The saturation of cytokine production by active macrophages is calculated by the equation $(1 - \frac{CH}{chInf})$, where $chInf$ is an 
+estimate of the maximum quantity of pro-inflammatory cytokine supported by the tissue. 
+The production of pro-inflammatory cytokine decreases when anti-inflammatory cytokine acts on the producing cells. 
+This influence of anti-inflammatory cytokine is denoted by the expression $1/(1 + \theta_{AC}.AC)$. 
+$D_{CH} \Delta CH$ models pro-inflammatory cytokine diffusion, where $D_{CH}$ is the diffusion coefficient. 
+
+The neutrophil differential equation (N) is given in Equation \ref{eqNeutrofilo}.
+
+\begin{equation}
+ \begin{cases}   
+P_{N} = (P^{max}_{N}- P^{min}_{N}).\frac{CH}{CH + Keqch} + P^{min}_{N}\\\\
+source_{N} = P_{N}.(N^{max} - N)\\\\
+\frac{\partial N}{\partial t} = -\mu_N N -\lambda _{LPS|N} LPS. N + D_N \Delta N + source_{N} - \nabla. (\chi_N N \nabla CH) \\\\
+N(x,0) = N_0, \frac{\partial N(.,t)}{\partial n} |_{\partial\Omega} = 0 
+\end{cases} 
+\label{eqNeutrofilo}
+\end{equation}
+
+In this equation, $P_{N}$ denotes the increase in endothelium permeability and its effects on neutrophil extravasation. 
+In the top equation, $P^{max}_{N}$ is the maximum endothelium permeability induced by pro-inflammatory cytokines, 
+$P^{min}_{N}$ is the minimum endothelium permeability induced by pro-inflammatory cytokines and $keqch$ is the number of pro-inflammatory 
+cytokines that exert $50\%$ of the maximum effect on endothelium permeability. 
+
+Here, $\mu_N N$ denotes neutrophil apoptosis, where $\mu_N$ is the rate of apoptosis. $\lambda _{LPS|N} LPS. N$ denotes the neutrophil 
+apoptosis induced by phagocytosis, where $\lambda _{LPS|N}$ represents the rate of this induced apoptosis. The term $D_N \Delta N$ denotes
+neutrophil diffusion, where $D_N$ is the diffusion coefficient. $source_{N}$ represents the source term of neutrophil, i.e., the number of 
+neutrophils entering the tissue from the blood vessels. This number depends on the endothelium permeability ($P_{N}$) and on the number of
+neutrophils in the blood ($N^{max}$). The term $\nabla. (\chi_N N \nabla CH)$ denotes the chemotaxis process of the neutrophils, 
+where $\chi_N$ represents the chemotaxis rate. 
+
+The differential equation corresponding to the apoptotic neutrophil (ND) is given in Equation \ref{eqNDEstendido}.
+
+\begin{equation}
+\label{eqNDEstendido}
+\begin{cases} 
+\frac{\partial ND}{\partial t} = \mu_N N + \lambda_{LPS|N} LPS. N - \lambda_{ND|AM} ND.AM + D_{ND} \Delta ND  \\\\
+ND(x,0) = ND_0, \frac{\partial ND(.,t)}{\partial n} |_{\partial\Omega} = 0 
+\end{cases}
+\end{equation}
+
+Here, note that $\mu_N N$ and $\lambda _{LPS|N} LPS. N$ were defined previously, whereas $\lambda _{ND|AM} ND.AM$ denotes the 
+phagocytosis of the apoptotic neutrophil carried out by active macrophages, and $\lambda _{ND|AM}$ is the rate of this phagocytosis. 
+$D_{ND} \Delta ND$ models the apoptotic neutrophil diffusion, where $D_{ND}$ is the diffusion coefficient. 
+
+The differential equation for protein granules (G) is given in Equation \ref{eqGEstendido}.
+
+\begin{equation}
+\label{eqGEstendido}
+\begin{cases} 
+\frac{\partial G}{\partial t} = -\mu_G G + \alpha _{G|N}.source_{N}.(1 - \frac{G}{gInf}) + D_{G} \Delta G \\\\
+G(x,0) =  G_0, \frac{\partial G(.,t)}{\partial n} |_{\partial\Omega} = 0 
+\end{cases}
+\end{equation}
+
+$\mu_G G$ models the decay of the granules, where $\mu_G$ is the decay rate. $\alpha _{G|N}.source_{N}$ denotes the production of 
+protein granules by neutrophils extravasating from the blood into inflamed tissue, where $\alpha_{G|N}$ is a dimensionless constant. 
+The saturation of protein granule production is calculated by the expression $(1 - \frac{G}{gInf})$, where $gInf$ is the maximum number 
+of protein granules. $D_{G} \Delta G$ models protein granule diffusion, where $D_{G}$ is the diffusion coefficient.
+
+The differential equation for the anti-inflammatory cytokine (AC) is given in Equation \ref{eqCAEstendido}.
+
+\begin{equation}
+\label{eqCAEstendido}
+\begin{cases} 
+\frac{\partial AC}{\partial t} = -\mu_{AC} AC + (\beta_{RM|ND}.RM.ND + \alpha_{AC|AM}.AM).(1 - \frac{AC}{acInf}) + D_{AC} \Delta AC \\\\
+AC(x,0) =  AC_0, \frac{\partial AC(.,t)}{\partial n} |_{\partial\Omega} = 0 
+\end{cases}
+\end{equation}
+
+In this equation, $\mu_{AC} AC$ denotes the anti-inflammatory cytokine decay, where $\mu_{AC}$ represents the decay rate. 
+$\beta _{RM|ND}.RM.ND$ denotes the anti-inflammatory cytokine production by the resting macrophages in the presence of apoptotic 
+neutrophils, where $\beta _{RM|ND}$ is the rate of this production. 
+$\alpha _{AC|AM}.AM$ denotes the anti-inflammatory cytokine production by active macrophages, where this production has 
+rate $\alpha _{AC|AM}$ and saturation $(1 - \frac{AC}{acInf})$, where $acInf$ is the maximum number of anti-inflammatory cytokines 
+in the tissue. $D_{AC} \Delta AC$ models the anti-inflammatory cytokine diffusion, where $D_{AC}$ is the diffusion coefficient.
+
+
+\section*{Implementation}\label{implementation}
+
+The numerical method that we have applied to our mathematical model is presented in our previous work \cite{icaris11}.
+
+% a method commonly used in the numeric discretization of PDEs. The FDM is a method of resolution of differential 
+% equations and is based on the approximation of derivatives using finite differences. 
+% 
+% Below, we provide an example of a finite difference operator used in the discretization of the Laplace operator, which simulates 
+% the diffusion phenomenon:
+% 
+% \begin{equation}
+%  \label{discretizacaoDifusao}
+%  D_N \frac{\partial^2 N(x)}{\partial x^2} \approx D_N*((n[x+deltaX] -2*n[x] +n[x-deltaX])/deltaX^2))
+% \end{equation}
+
+% In Equation \ref{discretizacaoDifusao}, $n$ represents the discretization of the neutrophil population, $D_N$ is the diffusion 
+% coefficient of neutrophils, $x$ is the position in the space and $deltaX$ is the space discretization. A complex part of PDE 
+% resolution involves the convective term (the chemotaxis term). The development of numerical methods to approximate 
+% convective terms (which in most cases are nonlinear) has been the subject of intense research in the past few 
+% years \cite{Harten1997, Leonard1988, Shu1989, Sod1978}. Different numerical approaches have been proposed for the discretization 
+% of the chemotaxis term \cite{chemotaxismath1,chemotaxismath2}. Our implementation is based on the FDM for spatial discretization 
+% and the explicit Euler method for time evolution. The discretization of the chemotaxis term ($\nabla. (\chi_N N \nabla CH)$) uses 
+% the First-Order Upwind scheme \cite{Hafez2002}. Therefore, the precision of our numerical implementation is first order with respect 
+% to both time (explicit Euler) and space (upwind scheme). The upwind scheme discretizes hyperbolic PDEs through the use of differences 
+% with bias in the direction indicated by the signal of characteristic speeds. This method uses an adaptive or solution-sensitive stencil 
+% to numerically and more precisely simulate the direction of information propagation. 
+% 
+% In one dimension, the upwind scheme approximates the chemotaxis term as the sum of $flux\_left$ at the point $x - \frac{deltaX}{2}$ 
+% and $flux\_right$ at the point $x + \frac{deltaX}{2}$ in the following way:
+% \newline
+% 
+% \begin{center}
+% \begin{lstlisting}
+% if (ch[x] - ch[x-deltaX] > 0) {
+%     flux_left = -(ch[x] - ch[x-deltaX])*n[x-deltaX]/deltaX;
+% }
+% else{
+%     flux_left = -(ch[x] - ch[x-deltaX])*n[x]/deltaX;
+% }
+% 
+% 
+% if (ch[x+deltaX] - ch[x] > 0) {
+%     flux_right = (ch[x+deltaX] - ch[x])*n[x]/deltaX;
+% }
+% else{
+%     flux_right = (ch[x+deltaX] - ch[x])*n[x+deltaX])/deltaX;
+% }
+% 
+% \end{lstlisting}
+% \end{center}
+% 
+% In this code, $ch$ represents the discretization of pro-inflammatory cytokine, $n$ denotes the discretization of neutrophils, 
+% $x$ is the position in space and $deltaX$ is the spatial discretization. The test is to define the signal of the characteristic 
+% speed, where the speed of $N(x)$ is given by $\nabla CH$. This value is then used to choose between the forward and backward 
+% schemes of finite differences.
+% 
+% We decided to implement our own numerical method to solve the system of PDEs because we saw the opportunity to parallelize the code 
+% and because most numerical libraries offer few functions suitable to our problem. The sequential code was implemented in C. 
+
+We executed some convergence tests to test the implementation of our numerical method. 
+In short, we assumed that the correct solution derived from the results of a very refined mesh, where the refinement was in terms of 
+time ($dt = 10^{-6} day$) and space ($deltaX = 0.1 mm$). To show convergence with respect to time, we selected two new values for 
+$dt$, $dt1 = 4.0 \times 10^{-6} day$ and $dt2 = 8.0 \times 10^{-6} day$. We applied the L2-norm to compute the errors when using 
+$dt1$ and $dt2$ for our refined mesh. We observed that the error when using $dt2$ was $2.3$ times greater than the error obtained 
+with $dt1$. Therefore, as theoretically predicted, our numerical scheme is first-order accurate with respect to time. We then conducted 
+the same analysis for convergence with respect to space, choosing two new values of $deltaX$, $dx1 = 0.4 mm$ and $dx2 = 0.8 mm$. 
+The L2-norm error when using $dx2$ was $2.03$ times greater than the error obtained with $dx1$. Once again, the values obtained were 
+as expected, as we were using a first-order discretization (upwind) in space. These results gave us confidence that our numerical 
+solver had been correctly implemented.
+
+% We also parallelized the code by applying three distinct models: shared memory, message passing, and a hybrid model. More details about 
+% the parallel code can be obtained in \cite{Pigozzo2010}.
+
+\section*{Numerical experiments}\label{results}
+
+The model's initial conditions and parameters are given in Tables \ref{initialConditions} and \ref{parameters}, respectively. 
+In our simulations, we assumed a one-dimensional domain of 5 $mm$ length and a simulation time of 5 days. 
+In fact, this one-dimensional model is a simplification of a 3D block model in that we have assumed that the lengths associated 
+with $y$ and $z$ are much smaller than the length associated with $x$.
+
+In this paper, we obtained parameter values for humans whenever they were available. 
+%inicio xandao
+ We chose values for the initial concentrations of LPS according to the work of the authors in \cite{Movat1986}. 
+In their experiments, \textit{E. coli} cells were inoculated intradermally ($10^8$) into normal and neutropenic rabbits. 
+They reported that all bacteria and inflammatory cells were contained in this 1.5 cm diameter biopsy and restricted to its 0.2 cm 
+thick layer of dermal collagen. Thus, the volume of dermis in which the \textit{E. coli} cells were contained was approximately 
+$0.35$ cm$^3$ \cite{Li2004}. This finding suggested us a value of $LPS_0 = 100.0 \times 10^4$ cells$/mm^3$. 
+
+%fim_xandao 
+
+In Table \ref{parameters}, parameters marked with * were adjusted to qualitatively reproduce the results obtained in several 
+studies of the immune response to LPS. In the case of LPS, we adjust the equation parameters to obtain an exponential decrease, 
+as shown in \cite{Li2002}. The results of the concentration of pro-inflammatory cytokines over time are qualitatively similar to 
+those obtained in some experimental works \cite{Malefyt01111991, Oswald1992, 2007851}. The time course for the anti-inflammatory 
+cytokine is qualitatively similar to the results in \cite{Malefyt01111991}. An important feature present in our model is the 
+inhibition of the production of pro-inflammatory cytokines by neutrophils through the action of anti-inflammatory 
+cytokines \cite{Marie1996}. The protein granule model behavior is based on existing work \cite{19652869}.
+The parameters marked with ** were based on the values given in the references but were adjusted due to the use of distinct units 
+(for example, from L to $mm^3$) or to fit in a 5 $mm$ tissue. 
+
+
+%fim xandao
+
+\begin{table}[htpb]
+\centering
+\caption{Initial conditions}
+\begin{tabular}{cccc}
+\hline
+\textbf{Parameter} & \textbf{Value} & \textbf{Unit}   \\
+\hline 
+$LPS_0$ & $100: \hspace{3 mm}  0 < x < 1$ & $10^4 cells/mm^3$ \\
+\hline
+$LPS_0$ & $0: \hspace{3 mm}  1 \le x < 5$ & $10^4 cells/mm^3$ \\
+\hline
+$RM_0$ & $1: \hspace{3 mm} 0 < x < 5$ & $10^4 cells/mm^3$ \\
+\hline 
+$AM_0$ & $0: \hspace{3 mm} 0 < x < 5$ & $10^4 cells/mm^3$ \\
+\hline 
+$CH_0$ & $0: \hspace{3 mm} 0 < x < 5$ & $10^4 cells/mm^3$ \\
+\hline 
+$N_0$ & $0: \hspace{3 mm} 0 < x < 5$ & $10^4 cells/mm^3$ \\
+\hline 
+$ND_0$ & $0:\hspace{3 mm} 0 < x < 5$ & $10^4 cells/mm^3$ \\
+\hline  
+$G_0$ & $0:\hspace{3 mm} 0 < x < 5$ & $10^4 cells/mm^3$ \\
+\hline 
+$AC_0$ & $0:\hspace{3 mm} 0 < x < 5$ &  $10^4 cells/mm^3$ 
+\end{tabular}
+\label{initialConditions} 
+\end{table}
+
+
+\begin{table}[htpb]
+\centering
+\caption{Parameters}
+\begin{tabular}{cccc}
+\hline
+\textbf{Parameter} & \textbf{Value} & \textbf{Unit}  & \textbf{Reference} \\
+\hline 
+$\phi_{RM|LPS}$ & 0.1 &  1/($cells/mm^3$ ).day & \cite{localmodel}**\\
+\hline
+$\theta_{AC}$ & 1 &  1/($cells/mm^3$ ) & estimated*\\
+\hline 
+$\mu_{LPS}$ & 0.005 & 1/day & \cite{localmodel}\\
+\hline
+$\lambda_{N|LPS}$ & 0.55 & 1/($cells/mm^3$ ).day & \cite{localmodel}\\
+\hline 
+$\lambda_{AM|LPS}$ & 0.8 & 1/($cells/mm^3$ ).day &\cite{localmodel} \\
+\hline
+$D_{LPS}$ & 2000 & ${\mu m}^2$/day & estimated*\\ 
+\hline
+$P^{max}_{RM}$ & 0.1 & 1/day & estimated*\\
+\hline 
+$P^{min}_{RM}$ & 0.01 & 1/day & estimated*\\
+\hline 
+$Q^{max}_{RM}$ & 0.5 & 1/day & estimated*\\
+\hline 
+$Q^{min}_{RM}$ & 0 & 1/day & estimated*\\
+\hline 
+$keqch$ & 1 &  $cells/mm^3$ & estimated*\\
+\hline 
+$keq_g$ & 1 &  $cells/mm^3$ & estimated*\\
+\hline 
+$M^{max}$ & 6 &  $cells/mm^3$ & estimated*\\
+\hline 
+$\mu_{RM}$ & 0.033 & 1/day & \cite{localmodel}\\
+\hline 
+$D_{RM}$ & 4320 & ${\mu m}^2$/day & \cite{Gammack2004,Owen97} \\
+\hline 
+$\chi_{RM}$ & 3600 & ${\mu m}^2$/day & \cite{Lauffenburger1993,Sozzani1991,Tranquillo1990} \\
+\hline 
+$\mu_{AM}$ & 0.07 & 1/day & \cite{localmodel}\\
+\hline 
+$D_{AM}$ & 3000 & ${\mu m}^2$/day & \cite{Gammack2004,Owen97} \\
+\hline 
+$\chi_{AM}$ & 4320 & ${\mu m}^2$/day & \cite{Lauffenburger1993,Sozzani1991,Tranquillo1990} \\
+\hline
+$\mu_{CH}$ & 7 & 1/day & \cite{localmodel}**\\
+\hline 
+$\beta_{CH|N}$ & 1 & 1/($cells/mm^3$).day & \cite{Andoh2000}\\
+\hline 
+$\beta_{CH|AM}$ & 0.8 & 1/($cells/mm^3$).day & \cite{Andoh2000}\\
+\hline 
+$chInf$ & 3.6 & $cells/mm^3$ & \cite{Waal1991}** \\
+\hline 
+$D_{CH}$ & 9216 &${\mu m}^2$/day & \cite{localmodel,Gammack2004}\\
+\hline
+$P^{max}_{N}$ & 11.4 & 1/day & \cite{Price1994}**\\
+\hline 
+$P^{min}_{N}$ & 0.0001 & 1/day & estimated*\\
+\hline 
+$keqch$ & 1 &  $cells/mm^3$ & estimated*\\
+\hline 
+$N^{max}$ & 8 &  $cells/mm^3$ & estimated*\\
+\hline 
+$\mu_N$ & 3.43 & 1/day & \cite{Edwards2003}\\
+\hline 
+$\lambda_{LPS|N}$ & 0.55 & 1/($cells/mm^3$).day & \cite{localmodel}\\
+\hline 
+$D_N$ & 12096 & ${\mu m}^2$/day & \cite{Felder1994} \\
+\hline 
+$\chi_{N}$ & 14400 & ${\mu m}^2$/day & \cite{Chettibi1994}\\
+\hline 
+$\lambda _{ND|AM}$ & 2.6 & 1/($cells/mm^3$).day & \cite{localmodel}\\
+\hline
+$D_{ND}$ & 0.144 & ${\mu m}^2$/day & \cite{localmodel}** \\
+\hline 
+$\mu_{G}$ & 5 & 1/day & estimated*\\
+\hline 
+$\alpha _{G|N}$ & 0.6 & dimensionless & estimated*\\
+\hline 
+$gInf$ & 3.1 & $cells/mm^3$ & estimated* \\
+\hline 
+$D_{G}$ & 9216 &${\mu m}^2$/day & estimated*\\
+\hline 
+$\mu_{AC}$ & 4 & 1/day & estimated*\\
+\hline 
+$\beta_{RM|ND}$ & 1.5 & 1/($cells/mm^3$).day & estimated*\\
+\hline 
+$\alpha_{AC|AM}$ & 1.5 & dimensionless & estimated*\\
+\hline 
+$acInf$ & 3.6 & $cells/mm^3$ & \cite{Waal1991}**\\
+\hline 
+$D_{AC}$ & 9216 &${\mu m}^2$/day & \cite{Gammack2004}
+\end{tabular}
+\label{parameters} 
+\end{table}
+
+In Figure \ref{figure2}, we initially inject LPS only into a small part of the tissue. 
+As time progresses, we can see two important phenomena occurring: the diffusion of LPS through the tissue and the decrease of 
+LPS mainly due to the action of neutrophils and macrophages.
+
+%\begin{figure}[!htb]
+%	 \centering
+%	 \includegraphics[scale=0.65]{img/AlexandrePigozzo_fig6.png}	
+%	 \caption{Temporal evolution of the spatial distribution of LPS.}
+%	 \label{figure2}
+%\end{figure}
+
+In the case of neutrophils (Figure \ref{figure3}), we can witness an increase in neutrophil population mainly in regions of tissue 
+having higher levels of LPS. This increase happens because of an increase in endothelium permeability in addition to the chemotaxis 
+process attracting neutrophils to regions possessing more pro-inflammatory cytokines. When the amount of LPS is low, the neutrophil 
+population stops growing and starts to decrease because fewer neutrophils are entering into the tissue.  
+
+%\begin{figure}[!htb]
+%	 \centering
+%	 \includegraphics[scale=0.65]{img/AlexandrePigozzo_fig7.png}	
+%	 \caption{Temporal evolution of the spatial distribution of neutrophils.}
+%	 \label{figure3}
+%\end{figure}
+
+In Figure \ref{figure4}, we observe an increase of pro-inflammatory cytokines until 6 hours, when a large number of neutrophils are 
+present in the tissue. Afterwards, the number of pro-inflammatory cytokines decreases, mainly due to the presence of a large number 
+of active macrophages. Consequently, the anti-inflammatory cytokine population increases. The decrease of $CH$ has many important 
+consequences: fewer neutrophils and monocytes are migrating to the inflamed tissue, and fewer macrophages are becoming active, as 
+can be observed in Figure \ref{figure5}. This figure shows that the active macrophage population grows until 12 hours and then starts 
+to decrease because, as explained before, anti-inflammatory cytokines inhibit the activation of resting macrophages.
+
+%\begin{figure}[!htb]
+%	 \centering
+%	 \includegraphics[scale=0.65]{img/AlexandrePigozzo_fig8.png}	
+%	 \caption{Temporal evolution of the spatial distribution of pro-inflammatory cytokine.}
+%	 \label{figure4}
+%\end{figure}
+
+%\begin{figure}[!htb]
+%	 \centering
+%	 \includegraphics[scale=0.65]{img/AlexandrePigozzo_fig9.png}	
+%	 \caption{Temporal evolution of the spatial distribution of  active macrophage.}
+%	 \label{figure5}
+%\end{figure}
+
+
+\subsection*{Comparison of different scenarios}
+
+To show the importance of some cells, molecules and processes in the dynamics of the innate immune response, 
+we performed a set of simulations under different scenarios. Each simulation begins with a simple scenario in which we assume that 
+only macrophages participate in the immune response to LPS (Case 1). We then consider progressively more complex scenarios. 
+In each subsequent scenario, a new set of equations and terms are added to the previous one until the complete scenario is obtained 
+(Case 5). 
+
+A description of each case is given below: 
+\begin{itemize}
+\item Case 1: only macrophages participate in the immune response. Resting tissue-resident macrophages are responsible for the initial 
+response to LPS. 
+\item Case 2: considers a) the production of pro-inflammatory cytokines by active macrophages; and b) all effects of pro-inflammatory 
+cytokines, such as the increase in permeability and chemotaxis. 
+\item Case 3: incorporates neutrophils into the model, which participate in the immune response as a major phagocytic leukocyte. They 
+are also responsible for producing pro-inflammatory cytokines. 
+\item Case 4: incorporates protein granules into the model, which are produced by neutrophils and contribute to an increase in the 
+endothelium's permeability, allowing more monocytes to enter into the tissues and differentiate in resting macrophages. 
+\item Case 5: incorporates anti-inflammatory cytokines into the model. In this case, anti-inflammatory cytokines block the production 
+of pro-inflammatory cytokines by the neutrophils and active macrophages. In addition, anti-inflammatory cytokines block the activation
+of resting macrophages. 
+\end{itemize}
+
+Figure \ref{atempoEstendido} depicts the temporal evolution of the total amount of LPS in the tissue. 
+Observe that the introduction of pro-inflammatory cytokines in Case 2 causes a small decrease in the amount of LPS when compared to Case 1. 
+This decrease has occurred because our model considers the pro-inflammatory cytokine influence on monocyte migration to be almost 
+negligible. 
+
+In Case 3, the decrease in LPS has been accelerated due to the presence of neutrophils migrating into the tissue in huge quantities. 
+The number of neutrophils in the tissue is enough to control the infection. 
+
+In Case 4, observe that the extravasation of a second wave of monocytes (a consequence of the presence of protein granules produced by 
+the neutrophils) has no impact on the potentiation of the immune response because the LPS has been almost completely eliminated. 
+Note that the LPS decrease is smaller in case 5 than in cases 3 and 4. This fact is a consequence of the presence of anti-inflammatory 
+cytokines in the model, which causes a decrease in the number of neutrophils and monocytes extravasating to the tissue. 
+
+%\begin{figure}[!htb]
+%	 \centering
+%	 \includegraphics[scale=0.65]{img/AlexandrePigozzo_fig10.png}	
+%	 \caption{Temporal evolution of the total quantity of LPS.}
+%	 \label{atempoEstendido}
+%\end{figure}
+
+Figure \ref{mrtempoEstendido} depicts the temporal evolution of the population of resting macrophages and demonstrates 
+that the introduction of pro-inflammatory cytokines, neutrophils and protein granules (Cases 2, 3 and 4) contributes to an increase in 
+endothelium permeability, which in turn allows the entry of more monocytes. As a consequence, the number of resting macrophages increases, 
+an increase compounded between Cases 4 and 5 because anti-inflammatory cytokines are blocking the activation of resting macrophages. 
+
+
+%\begin{figure}[!htb]
+%	 \centering
+%	 \includegraphics[scale=0.65]{img/AlexandrePigozzo_fig11.png}	
+%	 \caption{Temporal evolution of the resting macrophage population.}
+%	 \label{mrtempoEstendido}
+%\end{figure}
+
+Figure \ref{matempoEstendido} presents the temporal evolution of the active macrophage population. Observe that an increase in this 
+population occurs from Case 1 to Case 2, which is due to the production of pro-inflammatory cytokines by active macrophages, which 
+have also increased permeability and chemotaxis. In Case 3, the introduction of neutrophils contributes to a faster elimination of
+LPS, and as a result, less LPS is available to activate resting macrophages. When protein granules are included in the model (Case 4), 
+we can observe an increase in the quantity of active macrophages. This population increase has occurred because protein granules allow 
+the direct activation and adhesion of monocytes in the endothelium of blood vessels, thus facilitating the monocytes' extravasation to 
+the tissues. Finally, a significant reduction in the total amount of active macrophages occurs in Case 5 due to the action of 
+anti-inflammatory cytokines, which  block the activation of resting macrophages. In addition, anti-inflammatory cytokines block the 
+production of pro-inflammatory cytokines, causing a decrease in endothelium permeability and consequently in the number of monocytes 
+extravasating to the tissue.
+
+%\begin{figure}[!htb]
+%	 \centering
+%	 \includegraphics[scale=0.65]{img/AlexandrePigozzo_fig12.png}	
+%	 \caption{Temporal evolution of the active macrophage population.}
+%	 \label{matempoEstendido}
+%\end{figure}
+
+Observe the significant increase in the number of pro-inflammatory cytokines in Figure \ref{chtempoEstendido} between Cases 2 and 3. 
+This increase is a direct consequence of the incorporation of neutrophils into the model, as neutrophils produce a huge amount of 
+pro-inflammatory cytokines. No change occurs between Cases 3 and 4 because the entry of more monocytes into the tissue occurs during 
+termination of the immune response, when the LPS available to activate the monocytes is small. In Case 5, the reduction in production 
+of pro-inflammatory cytokines due to the action of anti-inflammatory cytokines is responsible for the decrease in the total quantity 
+of pro-inflammatory cytokines. 
+
+%\begin{figure}[!htb]
+%	 \centering
+%	 \includegraphics[scale=0.65]{img/AlexandrePigozzo_fig13.png}	
+%	 \caption{Temporal evolution of the pro-inflammatory cytokine population.}
+%	 \label{chtempoEstendido}
+%\end{figure}
+
+Figure \ref{ntempoEstendido} depicts the temporal evolution of the neutrophil population, whose increase is similar in Cases 3 and 4 due 
+to the fact previously stated: the entry of more monocytes into the tissue occurs during termination of the immune response. In Case 5, 
+the number of neutrophils into the infected tissue is smaller than in Case 4 because fewer pro-inflammatory cytokines are present in the 
+tissue, which results in a reduction in the number of neutrophils migrating into the infected tissue. 
+
+%\begin{figure}[!htb]
+%	 \centering
+%	 \includegraphics[scale=0.65]{img/AlexandrePigozzo_fig14.png}	
+%	 \caption{Temporal evolution of the neutrophil population.}
+%	 \label{ntempoEstendido}
+%\end{figure}
+
+Figure \ref{ndtempoEstendido} illustrates a small decrease in the number of apoptotic neutrophils between Cases 3 and 4. This reduction 
+is a consequence of the presence of more active macrophages in Case 4 than in Case 3. In Case 5, the presence of fewer active macrophages 
+in the tissue leads to a reduction in the number of apoptotic neutrophils that are phagocytosed.
+
+%\begin{figure}[!htb]
+%	 \centering
+%	 \includegraphics[scale=0.65]{img/AlexandrePigozzo_fig15.png}	
+%	 \caption{Temporal evolution of the apoptotic neutrophil population.}
+%	 \label{ndtempoEstendido}
+%\end{figure}
+
+Figure \ref{gtempoEstendido} shows an increase in the number of protein granules between Case 4 and Case 5. In Case 4, the number of 
+neutrophils migrating to the infected tissue is larger, causing an increase in protein granule production as well. 
+
+%\begin{figure}[!htb]
+%	 \centering
+%	 \includegraphics[scale=0.65]{img/AlexandrePigozzo_fig16.png}	
+%	 \caption{Temporal evolution of the protein granule population.}
+%	 \label{gtempoEstendido}
+%\end{figure}
+
+Finally, Figure \ref{catempoEstendido} depicts the temporal evolution of the anti-inflammatory cytokine population. Observe that the 
+number of anti-inflammatory cytokines increases after the termination of the infection (as shown in Figure 10).
+
+%\begin{figure}[!htb]
+%	 \centering
+%	 \includegraphics[scale=0.65]{img/AlexandrePigozzo_fig17.png}	
+%	 \caption{Temporal evolution of the anti-inflammatory cytokine population.}
+%	 \label{catempoEstendido}
+%\end{figure}
+
+\section*{Conclusions and future works}\label{conclusion}
+
+In this work, we have presented a computational model for the dynamics of representative types of cells and molecules of the HIS 
+during an innate response to the injection of LPS into a small section of tissue. To achieve this objective, we have proposed a 
+mathematical model that incorporates the main interactions occurring between LPS and some cells and molecules 
+of the innate immune system. The model proposes a macroscopic or homogenized view of tissue composed of two different domains: 
+one domain represents the concentration of immune cells in the vascular system (in our case, neutrophils, $N_{max}(x,t)$, 
+and macrophages, $M_{max}(x,t)$), whereas the other domain represents the different cells and molecules present in the tissue 
+(our model considers lipopolysaccharide ($LPS$), neutrophils ($N$), apoptotic neutrophils ($ND$), pro-inflammatory cytokines ($CH$), 
+anti-inflammatory cytokines ($AC$), proteins granules ($G$), resting ($RM$) and \textit{hyperactivated} ($AM$) macrophages). 
+Communication between the two different domains is possible and is modeled by an endothelium permeability that varies in space and 
+time and may depend also on the concentration of different cells and molecules (in our model, the endothelium's permeability to 
+neutrophils depends on the concentration of $CH$, whereas its permeability to macrophages depends on $CH$ and $G$).  
+
+The model proposed in this work has been able to reproduce several features present in immune responses, such as:
+
+\begin{itemize}
+\item the order of arrival of cells at the site of infection, as shown in \cite{Meszaros1999}; 
+\item the coordination of macrophages and neutrophils to mount a more effective and intense response to LPS; 
+\item the endothelium's dynamic permeability, which may depend on local concentrations of pro-inflammatory cytokines and protein granules; 
+\item the important role of protein granules throughout the process of monocyte extravasation; 
+\item the regulation of immune response by macrophages through the production of anti-inflammatory cytokines and the phagocytosis of 
+apoptotic neutrophils; 
+\item the crucial role of anti-inflammatory cytokines in the control of the inflammatory response, thus avoiding a state of persistent 
+inflammation after the complete elimination of LPS. 
+\end{itemize}
+
+In future work, we plan to implement a more complete mathematical model that includes new cells (such as natural killer and dendritic 
+cells), molecules and other processes involved in the immune response. The model could be extended by any of the following methods: 
+a) including the interaction between endothelial cells, LPS and some cytokines such as IL-1$\beta$ and TNF-$\alpha$ \cite{Nooteboom2005}; 
+b) incorporating the fact that high amounts of LPS also induce an increase in endothelium permeability \cite{Nooteboom2005}; 
+c) considering the process of macrophage desensitization, in which high levels of LPS inhibit the production of TNF-$\alpha$ by 
+macrophages \cite{Berg2001}; d) taking into account that the TNF-$\alpha$ produced by macrophages induces the production of even 
+more TNF-$\alpha$ \cite{Sompayrac2008}; and e) considering that the TNF-$\alpha$ has proapoptotic and antiapoptotic effects on 
+macrophages and neutrophils. In low concentrations, TNF-$\alpha$ delays the apoptosis of macrophages and neutrophils and induces 
+the production of pro-inflammatory cytokines, whereas in high concentrations, it induces apoptosis \cite{Berg2001}.
+
+An important final step is the validation of our proposed model using experimental data. 
+Of particular interest is the spatio-temporal modeling of microabscess formation, a very important research topic. 
+For instance, \cite{9284178, rigothier2002fat,21151499,10469395}  presents animal studies detailing the formation of liver abscess and 
+microabscess by different types of infections. Epidermal microabscess formation by neutrophils was also evaluated 
+in \cite{10771480, 16374458, 18006666} and \cite{Movat1986}. Infection of the heart by bacteria (bacterial myocarditis \cite{20937752}) 
+or by viruses (viral myocarditis \cite{15668804}) is also correlated with microabscess formation by neutrophils. The interaction between 
+tumor cells and inflammatory cells plays an important role in cancer initiation and progression and was investigated in \cite{21822201}
+for the case of tumor-infiltrating neutrophils in pancreatic neoplasia, where the pattern of microabscess formation by neutrophils was 
+reported once again. We acknowledge that this distinct pattern of formation can only be numerically reproduced and studied by models that 
+capture the spatio-temporal dynamics of the HIS. Therefore, in the near future, we plan to extend our PDE model and adjust its parameters 
+in the hopes of reproducing some of these experimental findings. 
+
+%The authors declare that they have no competing interests
+
+\bigskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Author's contributions}
+
+RWS and ML have defined the methods and experiments. ABP has written the software code to implement the model 
+and has performed all simulations. ABP and GCM have analyzed and interpreted the results. All authors have 
+written the paper. They have read and approved the final manuscript. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Competing interests}    
+The authors declare that they have no competing interests.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Acknowledgments}
+\ifthenelse{\boolean{publ}}{\small}{}
+The authors would like to thank FAPEMIG, CNPq, CAPES and UFJF for supporting this study in addition to the anonymous reviewers who 
+have helped to improve the quality of this work. 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                  The Bibliography                       %%
+%%                                                         %%              
+%%  Bmc_article.bst  will be used to                       %%
+%%  create a .BBL file for submission, which includes      %%
+%%  XML structured for BMC.                                %%
+%%  After submission of the .TEX file,                     %%
+%%  you will be prompted to submit your .BBL file.         %%
+%%                                                         %%
+%%                                                         %%
+%%  Note that the displayed Bibliography will not          %% 
+%%  necessarily be rendered by Latex exactly as specified  %%
+%%  in the online Instructions for Authors.                %% 
+%%                                                         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+{\ifthenelse{\boolean{publ}}{\footnotesize}{\small}
+ \bibliographystyle{bmc_article}  % Style BST file
+  \bibliography{bmc_article} }     % Bibliography file (usually '*.bib' ) 
+
+%%%%%%%%%%%
+
+\ifthenelse{\boolean{publ}}{\end{multicols}}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                               %%
+%% Figures                       %%
+%%                               %%
+%% NB: this is for captions and  %%
+%% Titles. All graphics must be  %%
+%% submitted separately and NOT  %%
+%% included in the Tex document  %%
+%%                               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%
+%% Do not use \listoffigures as most will included as separate files
+
+\section*{Figures}
+
+\subsection*{Figure 1 - Two-domain model}
+Schematic representation of the two-domain model. The extravasation of neutrophils (or macrophages) from blood 
+to tissue depends on local permeability, $P(x,t)$, and on the difference between local concentrations of neutrophils in the two domains, 
+$N_{max}(x,t) - N(x,t)$. The permeability of the endothelium, which separates the two domains, varies with regard to time and space and depends 
+on the local presence of pro-inflammatory cytokines and protein granules.
+
+\subsection*{Figure 2 - Model's relations}
+Relations among the components of the model.
+
+\subsection*{Figure 3 - Diffusion process}
+Schematic representation of the diffusion process.
+
+\subsection*{Figure 4 - Permeability}
+Representation of the differences between fixed and dynamic permeabilities.
+
+\subsection*{Figure 5 - Chemotaxis process}
+Schematic representation of chemotaxis.
+
+\subsection*{Figure 6 - LPS concentration in space}
+Temporal evolution of the spatial distribution of LPS.
+
+\subsection*{Figure 7 - Neutrophil concentration in space}
+Temporal evolution of the spatial distribution of neutrophil.
+
+\subsection*{Figure 8 - Pro-inflammatory cytokine concentration in space}
+Temporal evolution of the spatial distribution of pro-inflammatory cytokine.
+
+\subsection*{Figure 9 - Active macrophage concentration in space}
+Temporal evolution of the spatial distribution of active macrophage.
+
+\subsection*{Figure 10 - Temporal evolution LPS}
+Temporal evolution of the total quantity of LPS.
+
+\subsection*{Figure 11 - Temporal evolution resting macrophage}
+Temporal evolution of the resting macrophage population.
+
+\subsection*{Figure 12 - Temporal evolution active macrophage}
+Temporal evolution of the active macrophage population.
+
+\subsection*{Figure 13 - Temporal evolution pro-inflammatory cytokine}
+Temporal evolution of the pro-inflammatory cytokine population.
+
+\subsection*{Figure 14 - Temporal evolution neutrophil}
+Temporal evolution of the neutrophil population.
+
+\subsection*{Figure 15 - Temporal evolution apoptotic neutrophil}
+Temporal evolution of the apoptotic neutrophil population.
+
+\subsection*{Figure 16 - Temporal evolution protein granule}
+Temporal evolution of the protein granule population.
+
+\subsection*{Figure 17 - Temporal evolution anti-inflammatory cytokine}
+Temporal evolution of the anti-inflammatory cytokine population.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                               %%
+%% Tables                        %%
+%%                               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Use of \listoftables is discouraged.
+%%
+%\section*{Tables}
+%  \subsection*{Table 1 - Sample table title}
+%    Here is an example of a \emph{small} table in \LaTeX\ using  
+%    \verb|\tabular{...}|. This is where the description of the table 
+%    should go. \par \mbox{}
+%    \par
+%    \mbox{
+%      \begin{tabular}{|c|c|c|}
+%        \hline \multicolumn{3}{|c|}{My Table}\\ \hline
+%        A1 & B2  & C3 \\ \hline
+%        A2 & ... & .. \\ \hline
+%        A3 & ..  & .  \\ \hline
+%      \end{tabular}
+%      }
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                               %%
+%% Additional Files              %%
+%%                               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\section*{Additional Files}
+%  \subsection*{Additional file 1 --- Sample additional file title}
+%    Additional file descriptions text (including details of how to
+%    view the file, if it is in a non-standard format or the file extension).  This might
+%    refer to a multi-page table or a figure.
+
+%  \subsection*{Additional file 2 --- Sample additional file title}
+%    Additional file descriptions text.
+
+
+\end{bmcformat}
+\end{document}
+
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+\begin{tikzpicture}[x=0.7pt,y=-0.7pt]
+	\definecolor{BLACK}{RGB}{0,0,0}
+	\definecolor{WHITE}{RGB}{255,255,255}
+	\draw[BLACK, solid, line join=round, line cap=round, line width=1, fill=WHITE]
+	(160,240) ellipse[x radius=10, y radius=10];
+	\draw[BLACK]
+	(144,259.5) node[rotate=0, font=\ttfamily\normalsize, BLACK, right=-.25]
+	{Place};
+	\draw[BLACK, solid, line join=round, line cap=round, line width=1, fill=WHITE]
+	(330,230) rectangle +(20,20);
+	\draw[BLACK]
+	(305,258.5) node[rotate=0, font=\ttfamily\normalsize, BLACK, right=-.25]
+	{Transition};
+	\draw[BLACK, solid, line join=round, line cap=round, line width=1]
+	(170,240) -- (330,240);
+	\draw[BLACK, solid, line join=round, line cap=round, line width=1, fill=BLACK]
+	(330,240) -- (320,243) -- (320,237) -- (330,240) -- cycle;
+	\draw[BLACK]
+	(242,245.5) node[rotate=0, font=\ttfamily\normalsize, BLACK, right=-.25]
+	{Arc};
+\end{tikzpicture}

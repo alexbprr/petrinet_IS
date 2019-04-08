@@ -1,0 +1,174 @@
+\begingroup
+	\renewcommand{\arraystretch}{1.5} % Default value: 1
+	\begin{center}
+		\def\arraystretch{2}
+		\begin{longtable}{
+				>{\centering\arraybackslash}m{2cm}|
+				m{4.23cm}|
+				>{\centering\arraybackslash}m{3cm}|
+				m{3cm}|
+				>{\centering\arraybackslash}m{2.5cm}
+			}
+			
+			\caption{Transições}
+			\label{tab:tabletransitions}\\
+			
+			\textbf{Nome} & \textbf{Descrição} & \textbf{Efeito} & \textbf{Places} & \textbf{Função}\\ \hline
+			\endfirsthead
+			
+			\multicolumn{5}{c}{{\bfseries \tablename\ \thetable{} -- continuando da página anterior}} \\
+			\textbf{Nome} & \textbf{Descrição} & \textbf{Efeito} & \textbf{Places} & \textbf{Função}\\
+			\endhead
+			
+			\multicolumn{5}{r}{{Continua na próxima página}} \\
+			\endfoot
+			\hline \hline
+			\endlastfoot
+			
+			Replication & 
+			As bactérias se replicam com determinada probabilidade e a replicação possui uma saturação. & 
+			Aumenta o número de tokens de B em 1. & 
+			\parbox{3cm}{B [in arc = read, \\\ out arc = std]} & 
+			$\frac{0.1 B}{B + 1}$ \\ \hline 
+			
+			Phag\_B\_N & 
+			Modela a fagocitose das bactérias realizada pelos neutrófilos. & 
+			Diminui o número de tokens de B em 1.  & 
+			\parbox{3cm}{B [in arc = std],\\\ N [in arc = read]\\\ D [in arc = read]} & 
+			$\frac{0.05 B N}{0.5 B + 0.5 D + 1}$ \\ \hline
+			
+			Phag\_B\_M & 
+			Modela a fagocitose das bactérias realizada pelos macrófagos. Como resultado da fagocitose, os macrófagos atraem mais neutrófilos para o local da infecção. & 
+			Diminui o número de tokens de B em 1.  & 
+			\parbox{3cm}{B [in arc = std]\\\ M [in arc = read]\\\ D [in arc = read]\\\ N\_Mig2 \\\ [out arc = std]} & 
+			$\frac{0.005 B M}{0.5 B + 0.5 D + 1}$ \\ \hline
+			
+			
+			N\_Death\_B & Modela a morte de neutrófilos causada pelas bactérias.  & 
+			Diminui o número de tokens de N em 1.  & 
+			\parbox{3cm}{B [input arc = read]\\\ N [in arc = std]\\\ ND [out arc = std]} & 
+			$0.005  B  N$ \\ \hline
+			
+			%M\_Death\_B & 
+			%Modela a morte de macrófagos causada pelas bactérias.  & 
+			%Diminui o número de tokens de M em 1.  & 
+			%B [in arc = read] e M [in arc = std] & 
+			%$0.0005 B M$ \\ \hline
+			
+			N\_Migration1 & 
+			Modela a migração dos neutrófilos devido a ação de citocinas pró-inflamatórias que não são modeladas explicitamente. 
+			Essa transição simula a produção de citocinas pró-inflamatórias por outras células 
+			(células de tecido e outras células do sistema imune não consideradas no modelo). & 
+			Aumenta o número de tokens de N em 1.  & 
+			\parbox{3cm}{B [in arc = read]\\\ N [out arc = std]} & 
+			$\frac{0.005 B}{(0.5 B + 1)}$ \\ \hline
+			
+			
+			N\_Migration2 & 
+			Modela a migração dos neutrófilos atraídos pelos macrófagos. & 
+			Aumenta o número de tokens de N em 1.  & 
+			\vspace{-0.41cm} \parbox{3cm}{B [in arc = read]\\\  N\_Mig2\_Aux \\\ [in arc = std]\\\ N [out arc = std]} \vspace{0cm} & 
+			$\frac{0.05 N\_Mig2\_Aux}{(0.5 B + 1)}$ \\ \hline
+			
+			M\_Migration1 & 
+			Modela a migração dos macrófagos. & 
+			Aumenta em 1 o número de tokens de M. & 
+			\parbox{3cm}{B[in arc = read]\\\ M\\\ [output arc = std]} & 
+			$\frac{(0.0005 B + 0.000001)}{(0.1 B + 1)}$ \\\hline
+			
+			N\_Apoptosis & 
+			Modela a apoptose dos neutrófilos. & 
+			Diminui em 1 o número de tokens de N. & 
+			\parbox{3cm}{N [in arc = std]\\\ ND[out arc = std]} & 
+			$0.005 N$ \\ \hline
+			
+			M\_Apoptosis & Modela a apoptose dos macrófagos. & 
+			Diminui em 1 o número de tokens de M. & 
+			\parbox{3cm}{M [in arc = std]\\\ MD [out arc = std]} & 
+			$0.0005 M$ \\	\hline
+			
+			B\_Damage & 
+			Modela o dano tecidual causado pelas bactérias. & 
+			Aumenta em 1 o número de tokens de D. & 
+			\parbox{3cm}{B [in arc = read]\\\ D [out arc = std]} & 
+			$0.01 B$ \\ \hline
+			
+			N\_Damage & 
+			Modela o dano tecidual causado pelos neutrófilos necróticos. & 
+			Aumenta em 1 o número de tokens de D. & 
+			\parbox{3cm}{ND [in arc = read]\\\ D [out arc = std]} & 
+			$0.005 ND$ \\ \hline
+			
+			Phag\_D\_M & 
+			Modela a fagocitose de células de tecido mortas realizada pelos macrófagos. & 
+			Diminui em 1 o número de tokens de D. & 
+			\parbox{3cm}{D [in arc = std]\\\ M [in arc = read]} & 
+			$\frac{0.005 M D}{(0.1 D + 1)}$ \\
+			
+		\end{longtable}
+	\end{center}
+\endgroup
+
+
+% \begin{sidewaystable}
+%     \centering
+% \caption{Wide table}
+%     \label{tab:wide-item-tbl}
+% \begin{tabularx}{\textwidth}{|*{4}{>{\RaggedRight\arraybackslash}X|}}
+%     \hline
+% \lipsum[1]  &   \lipsum[2]  &   \lipsum[3]  &   \lipsum[4]  \\
+% \end{tabularx}
+% \end{sidewaystable}
+
+% \begin{longtable}{@{*}r||p{1in}@{*}}
+% KILLED & LINE!!!! \kill
+% \caption{Transições\label{long}}\\
+% \hline\hline
+% \multicolumn{2}{@{*}c@{*}}%
+% {This part appears at the top of the table}\\
+% \textsc{First}&\textsc{Second}\\
+% \hline\hline
+% \endfirsthead
+% \caption[]{(continued)}\\
+% \hline\hline
+% \multicolumn{2}{@{*}c@{*}}%
+% {This part appears at the top of every other page}\\
+% \textbf{First}&\textbf{Second}\\
+% \hline\hline
+% \endhead
+% \hline
+% This goes at the&bottom.\\
+% \hline
+% \endfoot
+% \hline
+% These lines will&appear\\
+% in place of the & usual foot\\
+% at the end& of the table\\
+% \hline
+% \endlastfoot
+% longtable  columns  are specified& in the \\
+% same way as  in the tabular& environment.\\
+% ...
+% %\multicolumn{2}{||c||}{This is a ...}
+% ...
+% Some lines may take...&
+% \raggedleft This last column is a ‘‘p’’ column...
+% \tabularnewline
+% ...
+% Lots of lines& like this.\\
+% ...
+% \hline
+% Lots\footnote{...} of lines& like this.\\
+% Lots   of   lines& like this\footnote{...}\\
+% \hline
+% Lots of lines& like this.\\
+% ...
+% \end{longtable}
+
+% \begin{tabulary}{\textwidth}{LCLLL}
+%     \hline
+%     \textbf{Name} & \textbf{Description} & \textbf{Effect} & \textbf{Places involved} & {Function}\\      
+%     \hline    
+%     Replication & As bactérias se replicam com determinada probabilidade e a replicação possui uma saturação. & Increase the number of tokens in B by 1.  & B [input arc = read, output arc = standard] & $\frac{0.1 B}{B + 1}$ \\
+%     \hline
+% \end{tabulary} 

@@ -1,0 +1,25 @@
+TY  - JOUR
+DB  - PubMed
+AU  - Jarrett, Angela M
+AU  - Cogan, N G
+AU  - Shirtliff, M E
+T1  - Modelling the interaction between the host immune response, bacterial dynamics and inflammatory damage in comparison with immunomodulation and vaccination experiments
+SN  - 1477-8602
+SN  - 1477-8599
+Y1  - 2015/09/
+ET  - 2014/05/08
+AB  - The immune system is a complex system of chemical and cellular interactions that responds quickly to queues that signal infection and then reverts to a basal level once the challenge is eliminated. Here, we present a general, four-component model of the immune system's response to a Staphylococcal aureus (S. aureus) infection, using ordinary differential equations. To incorporate both the infection and the immune system, we adopt the style of compartmenting the system to include bacterial dynamics, damage and inflammation to the host, and the host response. We incorporate interactions not previously represented including cross-talk between inflammation/damage and the infection and the suppression of the anti-inflammatory pathway in response to inflammation/damage. As a result, the most relevant equilibrium of the system, representing the health state, is an all-positive basal level. The model is able to capture eight different experimental outcomes for mice challenged with intratibial osteomyelitis due to S. aureus, primarily involving immunomodulation and vaccine therapies. For further validation and parameter exploration, we perform a parameter sensitivity analysis which suggests that the model is very stable with respect to variations in parameters, indicates potential immunomodulation strategies and provides a possible explanation for the difference in immune potential for different mouse strains.
+SP  - 285
+EP  - 306
+VL  - 32
+IS  - 3
+AN  - 24814512
+UR  - https://www.ncbi.nlm.nih.gov/pubmed/24814512
+DO  - 10.1093/imammb/dqu008
+L2  - https://www.ncbi.nlm.nih.gov/pmc/PMC4416065/
+U1  - 24814512[pmid]
+U2  - PMC4416065[pmcid]
+U4  - dqu008[PII]
+J1  - Math Med Biol
+JF  - Mathematical medicine and biology : a journal of the IMA
+ER  - 

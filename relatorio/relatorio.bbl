@@ -1,0 +1,63 @@
+\begin{thebibliography}{1}
+
+\bibitem{Carvalho2015}
+Rafael~V. Carvalho, Jeroen Van~den Heuvel, Jetty Kleijn, and Fons~J. Verbeek.
+\newblock Coupling of petri net models of the mycobacterial infection process
+  and innate immune response.
+\newblock {\em Computation}, 3(2):150--176, 2015.
+
+\bibitem{Grant2013}
+Sarah~Schmidt Grant and Deborah~T. Hung.
+\newblock Persistent bacterial infections, antibiotic tolerance, and the
+  oxidative stress response.
+\newblock {\em Virulence}, 4(4):273--283, 2013.
+\newblock PMID: 23563389.
+
+\bibitem{Fonseca2015}
+Denise Morais da Fonseca, Timothy W. Hand, Seong-Ji Han, Michael Y. Gerner,
+  Arielle Glatman Zaretsky, Allyson L. Byrd, Oliver J. Harrison,
+  Alexandra M. Ortiz, Mariam Quinones, Giorgio Trinchieri, Jason M.
+  Brenchley, Igor E. Brodsky, Ronald N. Germain, Gwendalyn J. Randolph, and
+  Yasmine Belkaid.
+\newblock Microbiota-dependent sequelae of acute infection compromise
+  tissue-specific immunity.
+\newblock {\em Cell}, 163(2):354 -- 366, 2015.
+
+\bibitem{Liu2012}
+Fei Liu.
+\newblock {\em Colored Petri Nets for systems biology}.
+\newblock doctoralthesis, BTU Cottbus - Senftenberg, 2012.
+
+\bibitem{Heiner2010petri}
+Monika Heiner, Robin Donaldson, and David Gilbert.
+\newblock Petri nets for systems biology.
+
+\bibitem{Liu2013SPNC}
+Fei Liu and Ming Yang.
+\newblock Sersc colored stochastic petri nets for modeling complex biological
+  systems.
+\newblock 2013.
+
+\bibitem{Heiner2012}
+Monika Heiner, Mostafa Herajy, Fei Liu, Christian Rohr, and Martin Schwarick.
+\newblock Snoopy -- a unifying petri net tool.
+\newblock In Serge Haddad and Lucia Pomello, editors, {\em Application and
+  Theory of Petri Nets}, pages 398--407, Berlin, Heidelberg, 2012. Springer
+  Berlin Heidelberg.
+
+\bibitem{Jarrett2015}
+Angela~M Jarrett, N~G Cogan, and M~E Shirtliff.
+\newblock Modelling the interaction between the host immune response, bacterial
+  dynamics and inflammatory damage in comparison with immunomodulation and
+  vaccination experiments.
+\newblock {\em Mathematical medicine and biology : a journal of the IMA},
+  32(3):285--306, September 2015.
+
+\bibitem{Cohen2016}
+Taylor~S Cohen, Omari Jones-Nelson, Meghan Hotz, Lily Cheng, Lloyd~S Miller,
+  JoAnn Suzich, C~Kendall Stover, and Bret~R Sellman.
+\newblock S. aureus blocks efferocytosis of neutrophils by macrophages through
+  the activity of its virulence factor alpha toxin.
+\newblock {\em Scientific reports}, 6:35466--35466, October 2016.
+
+\end{thebibliography}

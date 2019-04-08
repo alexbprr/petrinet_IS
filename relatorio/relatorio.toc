@@ -1,0 +1,19 @@
+\select@language {brazil}
+\contentsline {section}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{3}{section.1}
+\contentsline {section}{\numberline {2}Redes de Petri}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}Colorsets, cores e tokens}{4}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}O Colorset Dot}{4}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Marking}{4}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Places}{5}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Transi\IeC {\c c}\IeC {\~o}es}{5}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}Arcos}{6}{subsection.2.6}
+\contentsline {section}{\numberline {3}Rede de Petri Estoc\IeC {\'a}stica}{7}{section.3}
+\contentsline {section}{\numberline {4}Software para constru\IeC {\c c}\IeC {\~a}o e simula\IeC {\c c}\IeC {\~a}o de redes de Petri}{7}{section.4}
+\contentsline {subsection}{\numberline {4.1}Snoopy}{7}{subsection.4.1}
+\contentsline {section}{\numberline {5}Modelo - Intera\IeC {\c c}\IeC {\~a}o bact\IeC {\'e}ria-neutr\IeC {\'o}filo}{8}{section.5}
+\contentsline {section}{\numberline {6}Modelo com Dano Tecidual}{10}{section.6}
+\contentsline {subsection}{\numberline {6.1}Processos modelados}{10}{subsection.6.1}
+\contentsline {section}{\numberline {7}Resultados}{14}{section.7}
+\contentsline {subsection}{\numberline {7.1}Rede de Petri da intera\IeC {\c c}\IeC {\~a}o bact\IeC {\'e}ria-neutr\IeC {\'o}filo}{14}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Rede de petri com dano tecidual}{15}{subsection.7.2}
+\contentsline {section}{\numberline {8}Conclus\IeC {\~a}o}{18}{section.8}
